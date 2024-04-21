@@ -1,6 +1,6 @@
-function WeatherService({ city, country, onSuccess, onError }) {
+function WeatherService({ city, onSuccess, onError }) {
   const apiKey = "d108789e363449e2f685c007633da5a6";
-  const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}`;
+  const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
   fetch(apiUrl)
     .then((response) => {
@@ -14,11 +14,8 @@ function WeatherService({ city, country, onSuccess, onError }) {
     .then((data) => {
       const temperatureKelvin = data.main.temp;
       const temperatureCelsius = temperatureKelvin - 273.15;
-      onSuccess(
-        `A temperatura em ${city}, ${country} é ${temperatureCelsius.toFixed(
-          2
-        )}°C`
-      );
+      const menssage = `A temperatura em ${city} é ${temperatureCelsius.toFixed()}°C`;
+      onSuccess(menssage);
     })
     .catch((error) => {
       onError(error.message);

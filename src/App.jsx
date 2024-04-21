@@ -1,12 +1,12 @@
 import Header from "./components/Header";
+import Search from "./components/Search";
 import WeatherResult from "./components/WeatherResult";
-import { useState } from "react";
 
 function App() {
-
   return (
     <>
       <Header />
+      <Search />
       <WeatherResult />
     </>
   );

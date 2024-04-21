@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 
-function WeatherResult({ temperature, error }) {
+const WeatherResult = ({ message, errorMessage }) => {
   return (
-    <div>
-      {temperature && <div id="result">{temperature}</div>}
-      {error && <div id="error">{error}</div>}
+    <div className="">
+      <p>{message}</p>
+      <p className="text-red-500" >{errorMessage}</p>
     </div>
   );
-}
+};
 
 export default WeatherResult;

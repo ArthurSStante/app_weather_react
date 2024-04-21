@@ -5,9 +5,6 @@ function Header() {
   return (
     <div>
       {/* <div className="logo"></div> */}
-      <div className="bg-gray-200 flex items-center justify-center">
-        <div className=""><Search /></div>
-      </div>
     </div>
   );
 }
