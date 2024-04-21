@@ -1,13 +1,23 @@
 import React, { useState } from "react";
+import { countries } from "countries-list";
 import WeatherService from "../../utils/api";
 
 const Search = () => {
   const [location, setLocation] = useState("");
+  const [paisSelecionado, setPaisSelecionado] = useState("");
+
+  const handleChangePais = (event) => {
+    setPaisSelecionado(event.target.value);
+  };
+
+  const paisesArray = Object.entries(countries);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     WeatherService(location);
   };
+
+  console.log("País selecionado:", paisSelecionado);
 
   return (
     <div>
@@ -20,7 +30,14 @@ const Search = () => {
           onChange={(e) => setLocation(e.target.value)}
           required
         />
-        <select name="" id=""></select>
+        <select value={paisSelecionado} onChange={handleChangePais}>
+          <option value="">Selecione um país</option>
+          {paisesArray.map(([codigo, pais]) => (
+            <option key={codigo} value={codigo}>
+              {pais.name}
+            </option>
+          ))}
+        </select>
       </form>
     </div>
   );
