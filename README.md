@@ -42,3 +42,6 @@ Useful Links
 Vite Documentation
 mui material documentation
 axios documentation
+![image](https://github.com/ArthurSStante/app_weather_react/assets/106411734/e04f47e7-a40e-4194-83de-3005db50a507)
+![image](https://github.com/ArthurSStante/app_weather_react/assets/106411734/462d1af7-e902-4165-b457-a3a24c98392c)
+![image](https://github.com/ArthurSStante/app_weather_react/assets/106411734/a045b867-cc1d-435f-a713-923c7cc7ed2c)
