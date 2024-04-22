@@ -2,7 +2,7 @@ import axios from "axios";
 
 function WeatherService({ city, onSuccess, onMessageError }) {
   const apiKey = "d108789e363449e2f685c007633da5a6";
-  const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
   axios
     .get(apiUrl)
