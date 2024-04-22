@@ -1,24 +1,37 @@
-function WeatherService({ city, onSuccess, onError }) {
+import axios from "axios";
+
+function WeatherService({ city, onSuccess, onMessageError }) {
   const apiKey = "d108789e363449e2f685c007633da5a6";
   const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-  fetch(apiUrl)
+  axios
+    .get(apiUrl)
     .then((response) => {
-      if (!response.ok) {
-        throw new Error(
-          "Cidade não encontrada ou problema na obtenção da temperatura."
-        );
-      }
-      return response.json();
-    })
-    .then((data) => {
+      const data = response.data;
       const temperatureKelvin = data.main.temp;
       const temperatureCelsius = temperatureKelvin - 273.15;
-      const menssage = `A temperatura em ${city} é ${temperatureCelsius.toFixed()}°C`;
-      onSuccess(menssage);
+      const cityData = {
+        name: data.name,
+        country: data.sys.country,
+        temperature: temperatureCelsius.toFixed(),
+        temperatureMax: temperatureCelsius.toFixed(),
+        temperatureMin: temperatureCelsius.toFixed(),
+        speed: data.wind.speed,
+        icon: data.weather[0].icon,
+      };
+      onSuccess(cityData); // Passando os dados da cidade para o componente
     })
     .catch((error) => {
-      onError(error.message);
+      if (error.response) {
+        // Resposta de erro do servidor
+        onMessageError(error.response.data.message);
+      } else if (error.request) {
+        // Erro na requisição
+        onMessageError("Erro na requisição.");
+      } else {
+        // Outros erros
+        onMessageError(error.message);
+      }
     });
 }
 

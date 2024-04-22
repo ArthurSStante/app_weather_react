@@ -1,14 +1,15 @@
-import Header from "./components/Header";
-import Search from "./components/Search";
-import WeatherResult from "./components/WeatherResult";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Pagina from "./components/PaginaInicial";
+import InfoCity from "./components/InfoCity";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Search />
-      <WeatherResult />
-    </>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Pagina />}></Route>
+        <Route path="/InfoCity/:location" element={<InfoCity />}></Route>
+      </Routes>
+    </Router>
   );
 }
 

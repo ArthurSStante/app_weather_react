@@ -5,6 +5,7 @@ function Header() {
   return (
     <div>
       {/* <div className="logo"></div> */}
+      <div className="flex justify-center items-center text-2xl">Descubra a Temperatura na cidade que deseja</div>
     </div>
   );
 }
