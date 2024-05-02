@@ -52,7 +52,7 @@ const InfoCity = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center h-screen text-white">
       <h2>Detalhes de {cityData.name}</h2>
       <p>Pais: {cityData.country}</p>
       <p>Temperatura: {cityData.temperature}</p>

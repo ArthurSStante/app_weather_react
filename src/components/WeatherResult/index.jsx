@@ -2,7 +2,7 @@ import React from "react";
 
 const WeatherResult = ({ cityData, errorMessage }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center text-red-600">
       <div className="text-2xl">
         <p>
           Temperatura de {cityData.name} é {cityData.temperature}

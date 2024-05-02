@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WeatherService from "../../utils/api";
 import WeatherResult from "../WeatherResult";
+import PaginaInicial from "../PaginaInicial"
 import { IoSearchOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
