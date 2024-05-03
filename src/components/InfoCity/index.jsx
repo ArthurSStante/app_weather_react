@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import WeatherService from "../../utils/api";
+import Header from "../Header";
 
 const InfoCity = () => {
   const { location } = useParams();
@@ -52,13 +53,20 @@ const InfoCity = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen text-white">
-      <h2>Detalhes de {cityData.name}</h2>
-      <p>Pais: {cityData.country}</p>
-      <p>Temperatura: {cityData.temperature}</p>
-      <p>Temperatura Maximo: {cityData.temperatureMax}</p>
-      <p>Temperatura Minima: {cityData.temperatureMin}</p>
-      <p>Velocidade dos Ventos: {cityData.speed}</p>
+    <div>
+      <Header />
+      <div className="flex flex-col justify-center items-center h-screen relative z-10 text-[white]">
+        <h2 className="text-2xl mb-5">Detalhes de {cityData.name}</h2>
+        <p className="paragrafo">Pais: {cityData.country}</p>
+        <p className="paragrafo">Temperatura: {cityData.temperature}</p>
+        <p className="paragrafo">
+          Temperatura Máxima: {parseInt(cityData.temperatureMax) + 1}
+        </p>
+        <p className="paragrafo">
+          Temperatura Minima: {parseInt(cityData.temperatureMin) - 1}
+        </p>
+        <p className="paragrafo">Velocidade dos Ventos: {cityData.speed}</p>
+      </div>
     </div>
   );
 };
