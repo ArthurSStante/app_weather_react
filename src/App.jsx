@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Pagina from "./components/PaginaInicial";
 import InfoCity from "./components/InfoCity";
-import video from "./videos/1118373_4k_Weather_Think_3840x2160.mp4";
+import video from "./videos/1118373_4k_Weather_Think_1280x720.mp4";
 
 function App() {
   return (
